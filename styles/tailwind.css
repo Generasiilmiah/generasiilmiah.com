@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.nav-icon {
+  height: 5px;
+  background-color: #8f0606;
+  @apply w-8 rounded-full;
+}
