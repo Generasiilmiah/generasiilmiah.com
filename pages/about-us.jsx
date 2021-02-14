@@ -3,7 +3,7 @@ import SubpageHeader from "../components/SubpageHeader";
 
 function AboutPage(props) {
   return (
-    <>
+    <article className="md:container md:mx-auto">
       <SubpageHeader bgImg="/img.jpg" />
 
       <article className="about-us backdrop px-6 py-10 mt-12 mb-20">
@@ -64,7 +64,7 @@ function AboutPage(props) {
           </div>
         </div>
       </article>
-    </>
+    </article>
   );
 }
 
