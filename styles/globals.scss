@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600;700&display=swap");
 
-$THEME: #8f0606;
+$OG-THEME: #8f0606;
+$THEME: #ff7272;
 $BACKDROP: #fff6f6;
 $LOWER-FOOTER: #f4d9d9;
 $TEXT: #454545;
@@ -27,8 +28,28 @@ a {
   box-sizing: border-box;
 }
 
+nav {
+  ul {
+    li {
+      .nav-active {
+        font-weight: bold;
+        color: $OG-THEME;
+      }
+    }
+  }
+}
+
 .backdrop {
   background-color: $BACKDROP;
+}
+
+.theme-bg {
+  background-color: $THEME;
+}
+
+.theme-border {
+  border: 3px solid $THEME;
+  // border-color: $THEME;
 }
 
 .lower-footer {
@@ -41,6 +62,19 @@ a {
   background-repeat: no-repeat;
   position: relative;
   border-radius: 15px;
+}
+
+.cover-img-overlay {
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.63);
+    border-radius: 15px;
+  }
 }
 
 .coming-soon-outer {
@@ -65,6 +99,17 @@ a {
   height: 500px;
 }
 
+.img-obj {
+  object-fit: cover;
+  object-position: center;
+}
+
+.img-header {
+  height: 65vh;
+  width: 400px;
+  text-align: end;
+}
+
 .about-us {
   h4 {
     font-weight: bold;
@@ -74,5 +119,49 @@ a {
   p,
   ol {
     margin-bottom: 1.3rem;
+  }
+}
+
+header {
+  height: 93vh;
+}
+
+.header-decor-container {
+  .header-decor-1 {
+    bottom: -2rem;
+    left: -4rem;
+    transform: scale(0.8);
+  }
+  .header-decor-2 {
+    top: -2.3rem;
+    right: -3.5rem;
+    transform: scale(0.8);
+  }
+}
+
+@media (min-width: 768px) {
+  .subpage-img {
+    height: 300px;
+  }
+
+  .about-us {
+    h4 {
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-bottom: 0.7rem;
+      width: 300px;
+    }
+  }
+
+  .about-grid {
+    grid-template-columns: 200px 1fr;
+  }
+
+  .about-header {
+    grid-template-columns: 224px 1fr;
+  }
+
+  .coming-soon-outer {
+    height: auto;
   }
 }
