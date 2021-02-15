@@ -6,8 +6,8 @@ function AboutPage(props) {
     <article className="md:container md:mx-auto">
       <SubpageHeader bgImg="/img.jpg" />
 
-      <article className="about-us backdrop px-6 py-10 mt-12 mb-20">
-        <div className="md:flex">
+      <article className="about-us backdrop px-6 py-10 mt-12 mb-20 md:rounded-xl md:mx-6">
+        <div className="md:grid about-grid">
           <h4>Sejarah</h4>
           <div>
             <p>
@@ -29,14 +29,14 @@ function AboutPage(props) {
           </div>
         </div>
 
-        <div className="md:flex mt-8">
+        <div className="md:grid about-grid mt-8">
           <h4>Motto</h4>
           <div>
             <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit.”</p>
           </div>
         </div>
 
-        <div className="md:flex mt-8">
+        <div className="md:grid about-grid mt-8">
           <h4>Visi Misi</h4>
           <div>
             <h5 className="font-bold">Visi:</h5>
