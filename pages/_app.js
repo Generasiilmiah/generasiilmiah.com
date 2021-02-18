@@ -3,13 +3,15 @@ import Nav from "../components/Nav";
 import "../styles/globals.scss";
 import "../styles/tailwind.css";
 
+import { AuthProvider } from "../auth";
+
 function MyApp({ Component, pageProps }) {
   return (
-    <div>
+    <AuthProvider>
       <Nav />
       <Component {...pageProps} />
       <Footer />
-    </div>
+    </AuthProvider>
   );
 }
 
