@@ -6,7 +6,10 @@ function Mengapa(props) {
     <section className="px-6 pb-10 md:mb-14 pt-2 mt-8 backdrop">
       <div className="md:flex md:container md:mx-auto">
         <div className=" mb-8 md:mb-0 md:pr-10 md:w-1/2">
-          <HomeSectionHeader title="Mengapa Generasi Ilmiah?" />
+          <HomeSectionHeader
+            title="Mengapa Generasi Ilmiah?"
+            isCenter="hybrid"
+          />
           <p className="text-sm md:text-base">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
             bibendum nisl risus. Lorem ipsum dolor sit amet, consectetur

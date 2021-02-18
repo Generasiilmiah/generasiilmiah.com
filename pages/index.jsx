@@ -3,13 +3,14 @@ import Link from "next/link";
 import BottomCta from "../components/BottomCta";
 import Mengapa from "../components/Mengapa";
 import Services from "../components/Services";
+import HomeClass from "../components/HomeClass";
 
 function index(props) {
   return (
     <div>
-      <header className="md:pb-10 md:container md:mx-auto flex justify-between flex-col-reverse md:flex-row">
+      <header className="md:pb-10 md:container md:mx-auto flex md:justify-between flex-col-reverse md:flex-row">
         <div className="header-cta px-6 md:w-2/5">
-          <h2 className="serif-heading text-3xl pt-20 mb-4">
+          <h2 className="serif-heading text-3xl md:pt-20 mb-4">
             Asah Kemampuan Penelitian dan Penalaranmu bersama Generasi Ilmiah!
           </h2>
           <p className="mb-20">
@@ -41,7 +42,7 @@ function index(props) {
             </Link>
           </div>
         </div>
-        <div className=" md:w-1/2 text-center flex items-center justify-center">
+        <div className="header-img w-full px-6 md:px-0 md:w-1/2 text-center flex items-center justify-center">
           <div className="relative header-decor-container">
             <img
               src="/assets/img/header.jpg"
@@ -51,12 +52,12 @@ function index(props) {
             <img
               src="/assets/svg/header-decor-1.svg"
               alt="Ilustrasi Kegiatan Ilmiah"
-              className="absolute header-decor-1"
+              className="absolute header-decor-1 hidden md:block"
             />
             <img
               src="/assets/svg/header-decor-2.svg"
               alt="Ilustrasi Kegiatan Ilmiah"
-              className="absolute header-decor-2"
+              className="absolute header-decor-2 hidden md:block"
             />
           </div>
         </div>
@@ -64,6 +65,7 @@ function index(props) {
 
       <Services />
       <Mengapa />
+      <HomeClass />
 
       <BottomCta img="/assets/img/btm-cta.jpg" />
     </div>
