@@ -192,6 +192,22 @@ header {
   font-size: 0.9rem;
 }
 
+.class-selection {
+  &:hover {
+    transform: translateY(-0.5rem);
+  }
+}
+
+.accordion-dropdown {
+  transform: rotate(180deg);
+  transition: all 200ms ease-in-out;
+}
+
+.is-open .accordion-dropdown {
+  transform: rotate(0);
+  transition: all 200ms ease-in-out;
+}
+
 @media (min-width: 768px) {
   .subpage-img {
     height: 300px;
