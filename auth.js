@@ -15,11 +15,11 @@ export const AuthProvider = ({ children }) => {
       if (!user) {
         setUser(null);
         nookies.set(undefined, "token", "", {});
+      } else {
+        const token = await user.getIdToken();
+        setUser(user);
+        nookies.set(undefined, "token", token, {});
       }
-
-      const token = await user.getIdToken();
-      setUser(user);
-      nookies.set(undefined, "token", token, {});
     });
   }, []);
 
