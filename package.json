@@ -16,8 +16,10 @@
     "nookies": "^2.5.2",
     "postcss": "^8.2.5",
     "react": "17.0.1",
+    "react-collapsible": "^2.8.3",
     "react-dom": "17.0.1",
     "react-hook-form": "^6.15.1",
+    "react-toastify": "^7.0.3",
     "tailwindcss": "^2.0.3"
   }
 }
