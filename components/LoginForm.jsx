@@ -4,11 +4,9 @@ import PropTypes from "prop-types";
 
 function LoginForm(props) {
   const { register, errors, handleSubmit } = useForm();
-  const onSubmit = (data) => {
-    console.log(data);
-  };
+
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(props.handleSubmit)}>
       <div className="rounded-md">
         <label
           htmlFor="email"
@@ -18,6 +16,8 @@ function LoginForm(props) {
         </label>
         <div className="mt-1 rounded-md">
           <input
+            value={props.email}
+            onChange={(e) => props.handleForm("email", e.target.value)}
             id="email"
             className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 shadow-sm"
             type="email"
@@ -46,6 +46,8 @@ function LoginForm(props) {
         </label>
         <div className="mt-1 rounded-md">
           <input
+            value={props.pass}
+            onChange={(e) => props.handleForm("pass", e.target.value)}
             id="password"
             className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 shadow-sm"
             type="password"
@@ -70,6 +72,7 @@ function LoginForm(props) {
           <button
             type="submit"
             className="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out"
+            onClick={props.handleSubmit}
           >
             Log in
           </button>
@@ -78,7 +81,5 @@ function LoginForm(props) {
     </form>
   );
 }
-
-LoginForm.propTypes = {};
 
 export default LoginForm;
