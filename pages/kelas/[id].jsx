@@ -1,0 +1,144 @@
+import React from "react";
+import Link from "next/link";
+import classIndex from "../../kelas.json";
+import { useRouter } from "next/router";
+import Collapsible from "react-collapsible";
+import AccordionTitle from "../../components/AccordionTitle";
+import AccordionContent from "../../components/AccordionContent";
+
+function ClassDetail(props) {
+  function generateMsg(kelas, paket) {
+    const targetPhone = `628977354733`;
+    const whatsappMsg = `Halo kak! Aku mau pesan Kelas ${kelas} paket ${paket} nih!`;
+
+    const link = `https://api.whatsapp.com/send?phone=${targetPhone}&text=${whatsappMsg
+      .split(" ")
+      .join("%20")}`;
+
+    return link;
+  }
+
+  const router = useRouter();
+  const classId = router.query.id;
+
+  return (
+    <div className="">
+      {props.classes[classId] ? (
+        <>
+          <article className="px-6 min-h-screen md:container md:mx-auto md:mt-8">
+            <div className="md:flex md:flex-row-reverse">
+              <div className="md:w-1/2 text-center">
+                <img
+                  src={props.classes[classId].thumbnail}
+                  alt=""
+                  className="img-obj w-full h-84 rounded-xl my-8 md:my-0 max-w-2xl"
+                />
+              </div>
+
+              <div className="md:w-1/2 md:pr-10">
+                <div className="breadcrumb font-bold text-sm">
+                  <Link href="#">
+                    <a>{props.classes[classId].category}</a>
+                  </Link>
+                  <span>{` > `}</span>
+                  <Link href="#">
+                    <a>{props.classes[classId].name}</a>
+                  </Link>
+                </div>
+                <h2 className="serif-heading text-2xl mb-4">
+                  {props.classes[classId].name}
+                </h2>
+                <p>{props.classes[classId].shortDesc}</p>
+
+                <div className="mt-8 mb-14 md:mb-0 md:mt-6">
+                  <h3 className="text-center font-bold text-lg mb-3">
+                    Pesan kelas
+                  </h3>
+                  <div className="flex justify-around items-center">
+                    <Link
+                      href={generateMsg(props.classes[classId].name, "Basic")}
+                    >
+                      <a target="_blank" className="block w-2/5 ">
+                        <div className="border-2 border-gray-500 text-center rounded-lg shadow-lg py-3 transition duration-150 ease-in-out class-selection hover:shadow-xl cursor-pointer">
+                          <h2>BASIC</h2>
+                          <small className="line-through">
+                            Rp {props.classes[classId].priceBasicBefore}
+                          </small>
+                          <h3 className="font-bold text-lg -mt-1">
+                            Rp {props.classes[classId].priceBasic}
+                          </h3>
+                        </div>
+                      </a>
+                    </Link>
+                    <Link
+                      href={generateMsg(
+                        props.classes[classId].name,
+                        "Ultimate"
+                      )}
+                    >
+                      <a target="_blank" className="block w-2/5 ">
+                        <div className="theme-bg text-white text-center rounded-lg shadow-lg py-3 transition duration-150 ease-in-out class-selection hover:shadow-xl cursor-pointer">
+                          <h2>ULTIMATE</h2>
+                          <small className="line-through">
+                            Rp {props.classes[classId].priceUltBefore}
+                          </small>
+                          <h3 className="font-bold text-lg -mt-1">
+                            Rp {props.classes[classId].priceUlt}
+                          </h3>
+                        </div>
+                      </a>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="backdrop md:w-3/5 mx-auto md:mx-0 py-4 px-6 rounded-lg mt-10">
+              <div className="">
+                <h4 className="font-bold mb-2 text-lg">Deskripsi</h4>
+                <p>{props.classes[classId].desc}</p>
+
+                <h4 className="font-bold mb-2 mt-6 text-lg">Fasilitas</h4>
+                <ul>
+                  {props.classes[classId].facility.map((item, idx) => (
+                    <li key={idx}>{`- ${item}`}</li>
+                  ))}
+                </ul>
+
+                <h4 className="font-bold mb-2 mt-6 text-lg">Kurikulum Kelas</h4>
+                <div className="border border-gray-300 shadow-lg bg-white rounded-lg overflow-hidden mb-6">
+                  {props.classes[classId].curriculum.map(
+                    (curriculumItem, index) => (
+                      <Collapsible
+                        trigger={
+                          <AccordionTitle title={curriculumItem.title} />
+                        }
+                        triggerStyle={{ cursor: "pointer" }}
+                        transitionTime={200}
+                        easing="ease-in-out"
+                      >
+                        <AccordionContent items={curriculumItem.subItem} />
+                      </Collapsible>
+                    )
+                  )}
+                </div>
+              </div>
+            </div>
+          </article>
+        </>
+      ) : (
+        "Oof"
+      )}
+    </div>
+  );
+}
+
+export async function getServerSideProps(context) {
+  return {
+    props: { ...classIndex },
+  };
+}
+
+ClassDetail.propTypes = {};
+
+export default ClassDetail;
