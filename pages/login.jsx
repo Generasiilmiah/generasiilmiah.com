@@ -1,9 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
-import PropTypes from "prop-types";
 import LoginForm from "../components/LoginForm";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+// import firebaseClient from "../firebaseClient";
+// import firebase from "firebase/app";
+// import "firebase/auth";
+
 function login(props) {
+  // firebaseClient();
+
+  const [email, setEmail] = useState("");
+  const [pass, setPass] = useState("");
+
+  function handleForm(field, value) {
+    switch (field) {
+      case "email":
+        setEmail(value);
+        break;
+
+      case "pass":
+        setPass(value);
+        break;
+
+      default:
+        break;
+    }
+  }
+
+  async function handleSubmit() {
+    // await firebase
+    //   .auth()
+    //   .signInWithEmailAndPassword(email, pass)
+    //   .then(() => (window.location.href = "/"))
+    //   .catch((err) => {
+    //     toast.error(err.message, {
+    //       position: "bottom-center",
+    //     });
+    //   });
+  }
+
   return (
     <div className="min-h-screen flex flex-col justify-center bg-gray-200">
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
@@ -21,13 +58,18 @@ function login(props) {
           </p>
         </div>
         <div className="mt-8 bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-          <LoginForm />
+          <LoginForm
+            email={email}
+            pass={pass}
+            handleForm={handleForm}
+            handleSubmit={handleSubmit}
+          />
         </div>
       </div>
+
+      <ToastContainer position="bottom-center" />
     </div>
   );
 }
-
-login.propTypes = {};
 
 export default login;

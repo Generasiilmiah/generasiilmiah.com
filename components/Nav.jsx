@@ -1,12 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "../NavLink";
+// import { useAuth } from "../auth";
+// import firebase from "firebase/app";
+// import "firebase/firestore";
 
 function Nav(props) {
+  // const db = firebase.firestore();
+  // const { user } = useAuth();
+  const user = "";
+
   const [isOpen, setOpen] = useState(false);
+  // const [userInfo, setUserInfo] = useState({});
 
   function toggleNav() {
     setOpen(!isOpen);
   }
+
+  // async function getUserInfo(uid) {
+  //   if (user) {
+  //     await db
+  //       .collection("users")
+  //       .doc(uid)
+  //       .get()
+  //       .then((userData) => {
+  //         if (userData.data()) {
+  //           const fetch = userData.data();
+  //           setUserInfo(fetch);
+  //           console.log(userInfo);
+  //         }
+  //       });
+  //   }
+  // }
+
+  // useEffect(() => {
+  //   getUserInfo(user.uid);
+  // }, []);
 
   return (
     <nav className="px-6 h-20 flex justify-between items-center md:container md:mx-auto z-20">
@@ -62,16 +90,29 @@ function Nav(props) {
         </li>
       </ul>
 
-      <Link href="/login">
-        <a className="hidden md:block">
-          <div
-            className="rounded-xl px-6 py-1.5 h-full mr-4 theme-bg text-white font-bold flex justify-center items-center"
-            style={{ boxSizing: "border-box" }}
-          >
-            <p>Masuk</p>
-          </div>
-        </a>
-      </Link>
+      {user ? (
+        <Link href="/pengguna">
+          <a className="hidden md:block">
+            <div
+              className="rounded-xl px-6 py-1.5 h-full mr-4 theme-bg text-white font-bold flex justify-center items-center"
+              style={{ boxSizing: "border-box" }}
+            >
+              <p>{user.uid}</p>
+            </div>
+          </a>
+        </Link>
+      ) : (
+        <Link href="/login">
+          <a className="hidden md:block">
+            <div
+              className="rounded-xl px-6 py-1.5 h-full mr-4 theme-bg text-white font-bold flex justify-center items-center"
+              style={{ boxSizing: "border-box" }}
+            >
+              <p>Masuk</p>
+            </div>
+          </a>
+        </Link>
+      )}
 
       <div
         className={`nav-icon flex flex-col gap-1 md:hidden ${
