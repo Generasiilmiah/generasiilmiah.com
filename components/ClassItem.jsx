@@ -4,7 +4,12 @@ import React from "react";
 function ClassItem(props) {
   return (
     <Link href={`/kelas/${props.id}`}>
-      <a>
+      <a
+        data-aos="fade-up"
+        data-aos-delay={props.delay * 150}
+        data-aos-easing="ease-in-out"
+        // data-aos-anchor-placement="top-center"
+      >
         <div className="bg-white p-4 rounded-xl shadow-lg mb-6 hover:shadow-xl transition duration-150 ease-in-out class-selection">
           <div
             className="cover-img w-full h-48 mb-4 rounded-lg"
