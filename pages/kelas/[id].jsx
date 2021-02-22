@@ -6,6 +6,7 @@ import Collapsible from "react-collapsible";
 import AccordionTitle from "../../components/AccordionTitle";
 import AccordionContent from "../../components/AccordionContent";
 import NotFound from "../404";
+import Head from "next/head";
 
 function ClassDetail(props) {
   function generateMsg(kelas, paket) {
@@ -26,6 +27,31 @@ function ClassDetail(props) {
     <div className="">
       {props.classes[classId] ? (
         <>
+          <Head>
+            <meta
+              name="description"
+              content={props.classes[classId].shortDesc}
+            />
+            <meta
+              property="og:url"
+              content={`https://generasiilmiah.com/kelas/${classId}`}
+            />
+            <meta
+              property="og:image"
+              content={`https://generasiilmiah.com${props.classes[classId].thumbnail}`}
+            />
+            <meta property="og:type" content="website" />
+            <meta
+              property="og:description"
+              content={props.classes[classId].shortDesc}
+            />
+            <meta
+              property="og:title"
+              content={`Kelas ${props.classes[classId].name} - Generasi Ilmiah`}
+            />
+            <title>{`Kelas ${props.classes[classId].name} - Generasi Ilmiah`}</title>
+          </Head>
+
           <article className="px-6 min-h-screen md:container md:mx-auto md:mt-8">
             <div className="md:flex md:flex-row-reverse">
               <div className="md:w-1/2 text-center">
