@@ -7,24 +7,39 @@ function Services(props) {
       <HomeSectionHeader title="Apa yang kami tawarkan?" isCenter="centered" />
 
       <div className="md:flex md:gap-8 md:mt-10">
-        <ServicesItem title="Kelas Online" img="/assets/img/svc-1.jpg">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
-          bibendum nisl risus.
+        <ServicesItem
+          title="Kelas Online"
+          img="/assets/img/svc-1.webp"
+          delay={0}
+        >
+          Berdasarkan silabus yang telah dibuat dan dilakukan secara virtual
+          Meeting.
         </ServicesItem>
 
-        <ServicesItem title="Kelas Online" img="/assets/img/svc-2.jpg">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
-          bibendum nisl risus.
+        <ServicesItem
+          title="Pengajaran Offline "
+          img="/assets/img/svc-2.webp"
+          delay={1}
+        >
+          Pengajaran offline secara langsung di sekolah jenjang SD, SMP, dan
+          SMA.
         </ServicesItem>
 
-        <ServicesItem title="Kelas Online" img="/assets/img/svc-3.jpg">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
-          bibendum nisl risus.
+        <ServicesItem
+          title="Garansi Lomba"
+          img="/assets/img/svc-3.webp"
+          delay={2}
+        >
+          Bimbingan submit hasil tulisan jika tidak menjadi finalis lomba /
+          ditolak publikasi.
         </ServicesItem>
 
-        <ServicesItem title="Kelas Online" img="/assets/img/svc-4.jpg">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
-          bibendum nisl risus.
+        <ServicesItem
+          title="Kerjasama Partner"
+          img="/assets/img/svc-4.webp"
+          delay={3}
+        >
+          Mempermudah pendaftaran pada event lomba melalui Generasi Ilmiah.
         </ServicesItem>
       </div>
     </section>

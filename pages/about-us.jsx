@@ -1,30 +1,59 @@
+import Head from "next/head";
 import React from "react";
 import SubpageHeader from "../components/SubpageHeader";
 
 function AboutPage(props) {
   return (
     <article className="md:container md:mx-auto">
+      <Head>
+        <meta
+          name="description"
+          content="Generasi ilmiah adalah wadah berbasis online dan offline yang mampu memberikan kesempatan kepada peserta untuk belajar dalam bidang penelitian dan penalaran."
+        />
+        <meta property="og:url" content="https://generasiilmiah.com/about-us" />
+        <meta
+          property="og:image"
+          content="https://generasiilmiah.com/logo/icon512.png"
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:description"
+          content="Generasi ilmiah adalah wadah berbasis online dan offline yang mampu memberikan kesempatan kepada peserta untuk belajar dalam bidang penelitian dan penalaran."
+        />
+        <meta property="og:title" content="Tentang Kami - Generasi Ilmiah" />
+        <title>Tentang Kami - Generasi Ilmiah</title>
+      </Head>
+
       <SubpageHeader bgImg="/img.jpg" />
 
       <article className="about-us backdrop px-6 py-10 mt-12 mb-20 md:rounded-xl md:mx-6">
         <div className="md:grid about-grid">
-          <h4>Sejarah</h4>
+          <h4>Deskripsi</h4>
           <div>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-              interdum tincidunt nisl, id convallis velit tristique hendrerit.
-              Duis maximus ultrices neque, ut venenatis purus porttitor eu.
-              Phasellus ullamcorper dignissim elit eu elementum. In quis nisl eu
-              lacus dapibus varius eget non quam. Integer hendrerit dapibus
-              gravida. Ut id dictum mauris, quis dapibus orci. Sed felis ante.
+              Generasi ilmiah adalah wadah berbasis online dan offline yang
+              mampu memberikan kesempatan kepada peserta didik tingkat sekolah
+              dasar hingga perguruan tinggi dalam meningkatkan kualitas soft
+              skills dalam bidang penelitian dan penalaran. Kami percaya bahwa
+              perpaduan hard skills dan soft skills sangat diperlukan, terutama
+              karena ketatnya persaingan pasar sehingga membutuhkan sumber daya
+              manusia yang tidak hanya memiliki pendidikan yang memadai.
+              Sehingga akhirnya Sumber Daya Manusia (SDM) dalam bidang nonformal
+              pada kali ini merupakan salah satu faktor kunci dalam ketatnya
+              persaingan, yakni bagaimana menciptakan SDM yang berkualitas dan
+              memiliki ketrampilan serta berdaya saing tinggi dalam persaingan
+              global.
             </p>
             <p>
-              Quisque malesuada erat id finibus facilisis. Duis finibus elit sed
-              tincidunt volutpat. Aenean faucibus est quis iaculis efficitur.
-              Cras libero nisl, placerat ac vehicula id, porta interdum libero.
-              Donec vitae tincidunt augue. Donec sed nisi eu nulla eleifend
-              porta. In sagittis sodales magna sit amet sagittis. Mauris
-              elementum et lorem eget laoreet. Etiam lorem urna.
+              Kami hadir sebagai platform pendidikan nonformal untuk menjawab
+              permsalahan dan membantu peserta didik dalam meningkatkan
+              kemampuan diri agar menjadi bekal dimasa yang akan datang dalam
+              berkuntribusi membawa perubahan untuk negeri. Generasi Ilmiah
+              hadir dengan fokus dua bidang yang berbeda namun tetap satu
+              kesatuan yang mampu relevan pada keterampilan diri seseorang yakni
+              bidang penelitian dan penalaran. Pada bidang penelitian yang fokus
+              pada pengajaran KTI, Essay, Business Plan, sedangka pada bidang
+              penalaran fokus pada pengajaran Debat, Business Case Case Study.
             </p>
           </div>
         </div>
@@ -32,7 +61,7 @@ function AboutPage(props) {
         <div className="md:grid about-grid mt-8">
           <h4>Motto</h4>
           <div>
-            <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit.”</p>
+            <p>“Kontributif, prestatif, inspiratif”</p>
           </div>
         </div>
 
@@ -42,23 +71,32 @@ function AboutPage(props) {
             <h5 className="font-bold">Visi:</h5>
             <ol>
               <li>
-                1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </li>
-              <li>
-                2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </li>
-              <li>
-                3. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Mewujudkan Indonesia Maju dengan kontribusi dan inovasi penerus
+                bangsa
               </li>
             </ol>
 
             <h5 className="font-bold">Misi:</h5>
             <ol>
               <li>
-                1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                1. Memberikan kesempatan dan ruang dalam meningkatkan minat dan
+                bakat.
               </li>
               <li>
-                2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                2. Melaksanakan layanan dalam bidang penelitian dan penalaran
+                secara efisien dan efektif.
+              </li>
+              <li>
+                3. Pengembangan potensi,dalam pendidikan yang direalisasikan
+                pada karya.
+              </li>
+              <li>
+                4. Meningkatkan sistem pendidikan melalui kolaborasi dengan
+                pihak internal dan eksternal.
+              </li>
+              <li>
+                5. Mendorong inovasi pengembangkan ilmu pengetahuan yang
+                bermanfaat dalam pemecahan masalah.
               </li>
             </ol>
           </div>
