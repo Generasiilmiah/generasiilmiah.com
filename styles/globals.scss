@@ -36,7 +36,7 @@ a {
 nav {
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 20;
   background-color: rgba(255, 255, 255, 0.87);
   .nav-logo {
     position: relative;
@@ -85,7 +85,12 @@ nav {
 
 .theme-border {
   border: 3px solid $THEME;
-  // border-color: $THEME;
+  transition: all 150ms ease-in-out;
+
+  &:hover {
+    background-color: $BACKDROP;
+    border-color: $OG-THEME;
+  }
 }
 
 .lower-footer {
@@ -114,6 +119,18 @@ nav {
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.63);
     border-radius: 15px;
+  }
+}
+
+.cover-img-overlay-square {
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.63);
   }
 }
 
