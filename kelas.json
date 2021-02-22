@@ -1,13 +1,13 @@
 {
     "classes": {
         "101": {
-            "thumbnail": "/assets/img/btm-cta.jpg",
+            "thumbnail": "/assets/img/btm-cta.webp",
             "name": "Karya Tulis Ilmiah",
             "priceBasicBefore": "99.000",
             "priceBasic": "49.500",
             "priceUltBefore": "180.000",
             "priceUlt": "90.000",
-            "category": "Penalaran",
+            "category": "Penelitian",
             "shortDesc": "Kelas ini memberikan bimbingan dan monitoring menganai tahap dalam penyusunan karya tulis ilmiah.",
             "desc": "Kelas ini memberikan bimbingan dan monitoring menganai tahap dalam penyusunan karya tulis ilmiah kepada peserta didik sehingga mampu memiliki gagasan ilmiah hasil pemikiran penulis yang disusun secara sistematis pada penulisan karya ilmiah. Sehingga hasil akhir mampu membuat satu karya tulis yang memiliki peluang untuk diikut sertakan dalam lomba atau publikasi.",
             "curriculum": [
@@ -28,16 +28,16 @@
                     "subItem": ["Konten Karya Tulis Ilmiah", "Poster"]
                 }
             ],
-            "facility": ["Grup diskusi melalui Whatsapp", "Modul Pembelajaran", "Powerpoint Materi", "Tugas Akhir berupa laporan", "Bimbingan konsultasi secara individu", "Pemberian reward berdasarkan ketegori tertentu", "E-sertifikat"]
+            "facility": ["Pengajaran melalui Zoom", "Grup diskusi melalui Whatsapp", "Modul Pembelajaran", "Powerpoint Materi", "Tugas Akhir berupa laporan", "Bimbingan konsultasi secara individu", "Pemberian reward berdasarkan ketegori tertentu", "E-sertifikat"]
         },
         "102": {
-            "thumbnail": "/assets/img/btm-cta.jpg",
+            "thumbnail": "/assets/img/btm-cta.webp",
             "name": "Business Plan",
             "priceBasicBefore": "99.000",
             "priceBasic": "49.500",
             "priceUltBefore": "180.000",
             "priceUlt": "90.000",
-            "category": "Penalaran",
+            "category": "Penelitian",
             "shortDesc": "Kelas ini memberikan bimbingan dan monitoring mengenai tahap dalam penyusunan rancangan business plan.",
             "desc": "Kelas ini memberikan bimbingan dan monitoring mengenai tahap dalam penyusunan rancangan business plan. Segala hal untuk disiapkan oleh wirausaha yang menggambarkan semua unsur yang relevan baik internal maupun eksternal mengenai ide yang diusung. Sehingga karya yang dibuat memiliki peluang diikut sertakan dalam lomba atau direalisasikan.",
             "curriculum": [
@@ -58,7 +58,7 @@
                     "subItem": ["Logo dan Kemasan", "Poster"]
                 }
             ],
-            "facility": ["Grup diskusi melalui Whatsapp", "Modul Pembelajaran", "Powerpoint Materi", "Tugas Akhir berupa laporan", "Bimbingan konsultasi secara individu", "Pemberian reward berdasarkan ketegori tertentu", "E-sertifikat"]
+            "facility": ["Pengajaran melalui Zoom", "Grup diskusi melalui Whatsapp", "Modul Pembelajaran", "Powerpoint Materi", "Tugas Akhir berupa laporan", "Bimbingan konsultasi secara individu", "Pemberian reward berdasarkan ketegori tertentu", "E-sertifikat"]
         }
     },
     "index": {
