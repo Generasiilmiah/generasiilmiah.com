@@ -12,7 +12,7 @@ function ClassItem(props) {
       >
         <div className="bg-white p-4 rounded-xl shadow-lg mb-6 hover:shadow-xl transition duration-150 ease-in-out class-selection">
           <div
-            className="cover-img w-full h-48 mb-4 rounded-lg"
+            className="cover-img w-full h-56 mb-4 rounded-lg"
             style={{ backgroundImage: `url(${props.img})` }}
           ></div>
           <h4 className="font-bold text-lg mb-2">{props.title}</h4>

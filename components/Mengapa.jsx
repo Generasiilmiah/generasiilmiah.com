@@ -13,7 +13,7 @@ function Mengapa(props) {
           <p className="text-sm md:text-base" data-aos="fade-in">
             Kami memiliki fokus dalam bidang penelitian dan penalaran sehingga
             kelak mampu menciptakan inovasi yang mampu diimplementasikan. Kami
-            akan membimbing dalam meningkatkan minat penelitian kamu.
+            akan membimbing dalam meningkatkan softskill kamu.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:mt-9 md:mb-4 md:w-1/2 md:ml-4">

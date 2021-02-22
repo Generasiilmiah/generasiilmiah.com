@@ -1,7 +1,7 @@
 {
     "classes": {
         "101": {
-            "thumbnail": "/assets/img/btm-cta.webp",
+            "thumbnail": "/assets/img/kti.webp",
             "name": "Karya Tulis Ilmiah",
             "priceBasicBefore": "99.000",
             "priceBasic": "49.500",
@@ -31,7 +31,7 @@
             "facility": ["Pengajaran melalui Zoom", "Grup diskusi melalui Whatsapp", "Modul Pembelajaran", "Powerpoint Materi", "Tugas Akhir berupa laporan", "Bimbingan konsultasi secara individu", "Pemberian reward berdasarkan ketegori tertentu", "E-sertifikat"]
         },
         "102": {
-            "thumbnail": "/assets/img/btm-cta.webp",
+            "thumbnail": "/assets/img/bp.webp",
             "name": "Business Plan",
             "priceBasicBefore": "99.000",
             "priceBasic": "49.500",

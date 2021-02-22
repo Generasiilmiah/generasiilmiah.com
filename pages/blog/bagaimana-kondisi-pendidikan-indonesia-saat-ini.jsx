@@ -12,7 +12,7 @@ function BlogPost(props) {
         <meta property="og:url" content="https://generasiilmiah.com/blog" />
         <meta
           property="og:image"
-          content="https://generasiilmiah.com/logo/icon512.png"
+          content="https://generasiilmiah.com/blog-assets/bagaimana-kondisi-pendidikan-indonesia-saat-ini.webp"
         />
         <meta property="og:type" content="article" />
         <meta
@@ -33,7 +33,7 @@ function BlogPost(props) {
       </h3>
       <small className="block mb-6">22 Februari 2021 - 18:51</small>
       <img
-        src="/assets/img/btm-cta.webp"
+        src="/blog-assets/bagaimana-kondisi-pendidikan-indonesia-saat-ini.webp"
         alt=""
         className="w-full rounded-lg"
       />

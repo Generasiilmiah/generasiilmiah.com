@@ -13,7 +13,7 @@ function BlogSingle(props) {
         </a>
       </Link>
       <img
-        src="/assets/img/btm-cta.webp"
+        src="/blog-assets/bagaimana-kondisi-pendidikan-indonesia-saat-ini.webp"
         alt=""
         className="w-full rounded-lg"
       />

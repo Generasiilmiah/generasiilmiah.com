@@ -49,12 +49,12 @@ function AboutPage(props) {
               Sehingga akhirnya Sumber Daya Manusia (SDM) dalam bidang nonformal
               pada kali ini merupakan salah satu faktor kunci dalam ketatnya
               persaingan, yakni bagaimana menciptakan SDM yang berkualitas dan
-              memiliki ketrampilan serta berdaya saing tinggi dalam persaingan
+              memiliki keterampilan serta berdaya saing tinggi dalam persaingan
               global.
             </p>
             <p>
               Kami hadir sebagai platform pendidikan nonformal untuk menjawab
-              permsalahan dan membantu peserta didik dalam meningkatkan
+              permasalahan dan membantu peserta didik dalam meningkatkan
               kemampuan diri agar menjadi bekal dimasa yang akan datang dalam
               berkuntribusi membawa perubahan untuk negeri. Generasi Ilmiah
               hadir dengan fokus dua bidang yang berbeda namun tetap satu
