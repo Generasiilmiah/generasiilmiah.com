@@ -1,9 +1,11 @@
 import React from "react";
+import NotFound from "../404";
 
 function Article(props) {
   return (
     <article className="px-6 py-8 md:container md:mx-auto">
-      <div className="md:w-3/5">
+      <NotFound />
+      {/* <div className="md:w-3/5">
         <h1 className="font-bold text-2xl">Lorem ipsum dolor sit amet</h1>
         <small className="block mb-6">31 Januari 2021 - 17:51</small>
         <img
@@ -28,7 +30,7 @@ function Article(props) {
           possimus sit minima saepe? Iure perspiciatis quo nam magnam pariatur
           ea? Voluptates.
         </p>
-      </div>
+      </div> */}
     </article>
   );
 }

@@ -4,6 +4,8 @@ import SignupForm from "../components/SignupForm";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+import Construction from "../components/Construction";
+
 // import firebaseClient from "../firebaseClient";
 // import firebase from "firebase/app";
 // import "firebase/auth";
@@ -74,7 +76,9 @@ function signup(props) {
   }
 
   return (
-    <div className="min-h-screen flex bg-gray-200">
+    <>
+      <Construction />
+      {/* <div className="min-h-screen flex bg-gray-200">
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         <div className="text-center mt-24">
           <h2 className="mt-6 text-center text-3xl leading-9 font-extrabold text-gray-900">
@@ -100,7 +104,8 @@ function signup(props) {
       </div>
 
       <ToastContainer position="bottom-center" />
-    </div>
+    </div> */}
+    </>
   );
 }
 

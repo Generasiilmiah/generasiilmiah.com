@@ -5,10 +5,11 @@ import { useRouter } from "next/router";
 import Collapsible from "react-collapsible";
 import AccordionTitle from "../../components/AccordionTitle";
 import AccordionContent from "../../components/AccordionContent";
+import NotFound from "../404";
 
 function ClassDetail(props) {
   function generateMsg(kelas, paket) {
-    const targetPhone = `628977354733`;
+    const targetPhone = `6281370369566`;
     const whatsappMsg = `Halo kak! Aku mau pesan Kelas ${kelas} paket ${paket} nih!`;
 
     const link = `https://api.whatsapp.com/send?phone=${targetPhone}&text=${whatsappMsg
@@ -127,7 +128,7 @@ function ClassDetail(props) {
           </article>
         </>
       ) : (
-        "Oof"
+        <NotFound />
       )}
     </div>
   );

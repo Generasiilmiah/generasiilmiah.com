@@ -4,6 +4,8 @@ import LoginForm from "../components/LoginForm";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Construction from "../components/Construction";
+import Head from "next/head";
 // import firebaseClient from "../firebaseClient";
 // import firebase from "firebase/app";
 // import "firebase/auth";
@@ -42,7 +44,12 @@ function login(props) {
   }
 
   return (
-    <div className="min-h-screen flex flex-col justify-center bg-gray-200">
+    <>
+      <Head>
+        <title>Login - Generasi Ilmiah</title>
+      </Head>
+      <Construction />
+      {/* <div className="min-h-screen flex flex-col justify-center bg-gray-200">
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         <div className="text-center mt-24">
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
@@ -68,7 +75,8 @@ function login(props) {
       </div>
 
       <ToastContainer position="bottom-center" />
-    </div>
+    </div> */}
+    </>
   );
 }
 
