@@ -5,11 +5,40 @@ import Mengapa from "../components/Mengapa";
 import Services from "../components/Services";
 import HomeClass from "../components/HomeClass";
 
+import classIndex from "../kelas.json";
+import Head from "next/head";
+
 function index(props) {
   return (
     <div>
-      <header className="md:pb-10 md:container md:mx-auto flex md:justify-between flex-col-reverse md:flex-row">
-        <div className="header-cta px-6 md:w-2/5">
+      <Head>
+        <meta
+          name="description"
+          content="Asah kemampuan penelitian dan penalaranmu bersama Generasi Ilmiah! Di Generasi Ilmiah, kamu akan memperoleh banyak ilmu dari mentor-mentor berpengalaman kami."
+        />
+        <meta property="og:url" content="https://generasiilmiah.com/" />
+        <meta
+          property="og:image"
+          content="https://generasiilmiah.com/logo/icon512.png"
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:description"
+          content="Asah kemampuan penelitian dan penalaranmu bersama Generasi Ilmiah! Di Generasi Ilmiah, kamu akan memperoleh banyak ilmu dari mentor-mentor berpengalaman kami."
+        />
+        <meta
+          property="og:title"
+          content="Generasi Ilmiah - Kontributif, prestatif, inspiratif"
+        />
+        <title>Generasi Ilmiah - Kontributif, Prestatif, Inspiratif</title>
+      </Head>
+
+      <header className="md:pb-10 md:container md:mx-auto flex md:justify-between flex-col-reverse md:flex-row overflow-x-hidden">
+        <div
+          className="header-cta px-6 md:w-2/5"
+          data-aos="fade-right"
+          data-aos-easing="ease-in-out"
+        >
           <h2 className="serif-heading text-3xl md:pt-20 mb-4">
             Asah Kemampuan Penelitian dan Penalaranmu bersama Generasi Ilmiah!
           </h2>
@@ -22,7 +51,7 @@ function index(props) {
             <Link href="/kelas">
               <a className="block">
                 <div
-                  className="rounded-xl px-6 py-1.5 h-full mr-4 theme-bg text-white font-bold flex justify-center items-center"
+                  className="rounded-xl px-6 py-1.5 h-full mr-4 theme-bg text-white font-bold flex justify-center items-center hover:bg-red-500 transition duration-150 ease-in-out"
                   style={{ boxSizing: "border-box" }}
                 >
                   <p>Lihat Kelas</p>
@@ -33,7 +62,7 @@ function index(props) {
             <Link href="/testimonial">
               <a className="block">
                 <div
-                  className="rounded-xl theme-border px-6 py-1.5 h-full flex justify-center items-center"
+                  className="rounded-xl theme-border px-6 py-1.5 h-full flex justify-center items-center hover:border-5"
                   style={{ boxSizing: "border-box" }}
                 >
                   <p>Testimonial</p>
@@ -42,10 +71,15 @@ function index(props) {
             </Link>
           </div>
         </div>
-        <div className="header-img w-full px-6 md:px-0 md:w-1/2 text-center flex items-center justify-center">
+        <div
+          className="header-img w-full px-6 md:px-0 md:w-1/2 text-center flex items-center justify-center"
+          data-aos="fade-left"
+          data-aos-delay="300"
+          data-aos-easing="ease-in-out"
+        >
           <div className="relative header-decor-container">
             <img
-              src="/assets/img/header.jpg"
+              src="/assets/img/header.webp"
               alt="Ilustrasi Kegiatan Ilmiah"
               className="img-obj img-header rounded-xl shadow-xl relative z-10"
             />
@@ -65,11 +99,17 @@ function index(props) {
 
       <Services />
       <Mengapa />
-      <HomeClass />
+      <HomeClass classes={props.classes} index={props.index} />
 
-      <BottomCta img="/assets/img/btm-cta.jpg" />
+      <BottomCta img="/assets/img/btm-cta.webp" />
     </div>
   );
+}
+
+export async function getServerSideProps(context) {
+  return {
+    props: { ...classIndex },
+  };
 }
 
 export default index;
