@@ -4,7 +4,7 @@ import SubpageHeader from "../components/SubpageHeader";
 
 function AboutPage(props) {
   return (
-    <article className="md:container md:mx-auto">
+    <div className="">
       <Head>
         <meta
           name="description"
@@ -24,9 +24,17 @@ function AboutPage(props) {
         <title>Tentang Kami - Generasi Ilmiah</title>
       </Head>
 
-      <SubpageHeader bgImg="/img.jpg" />
+      {/* <SubpageHeader bgImg="/img.jpg" /> */}
+      <div
+        className="cover-img cover-img-overlay-square rounded-none h-56 md:h-72 text-white md:mb-8 flex items-center justify-center"
+        style={{ backgroundImage: `url('/assets/img/team.webp')` }}
+      >
+        <h2 className="serif-heading text-xl text-3xl md:text-4xl text-center my-8 relative z-10">
+          Tentang Kami
+        </h2>
+      </div>
 
-      <article className="about-us backdrop px-6 py-10 mt-12 mb-20 md:rounded-xl md:mx-6">
+      <article className="about-us backdrop px-6 py-10 mt-12 mb-20 md:rounded-xl md:mx-6 md:container md:mx-auto">
         <div className="md:grid about-grid">
           <h4>Deskripsi</h4>
           <div>
@@ -102,7 +110,7 @@ function AboutPage(props) {
           </div>
         </div>
       </article>
-    </article>
+    </div>
   );
 }
 

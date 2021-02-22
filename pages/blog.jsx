@@ -31,7 +31,7 @@ function blog(props) {
 
       <div
         className="cover-img cover-img-overlay-square rounded-none h-56 md:h-72 text-white md:mb-8 flex items-center justify-center"
-        style={{ backgroundImage: `url('/assets/img/svc-1.webp')` }}
+        style={{ backgroundImage: `url('/assets/img/blog.webp')` }}
       >
         <h2 className="serif-heading text-xl text-3xl md:text-4xl text-center my-8 relative z-10">
           Blog
