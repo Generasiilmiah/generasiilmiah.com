@@ -25,6 +25,11 @@ a {
   text-decoration: none;
 }
 
+.blog-post a {
+  color: inherit;
+  text-decoration: underline;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -223,6 +228,16 @@ header {
 .is-open .accordion-dropdown {
   transform: rotate(0);
   transition: all 200ms ease-in-out;
+}
+
+.blog-underline {
+  transform: translateX(-105%);
+}
+
+.blog-newest:hover {
+  .blog-underline {
+    transform: translateX(0);
+  }
 }
 
 @media (min-width: 768px) {
