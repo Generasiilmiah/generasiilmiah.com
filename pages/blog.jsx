@@ -1,13 +1,29 @@
 import React from "react";
-import PropTypes from "prop-types";
+import firebase from "firebase";
 import BlogHighlight from "../components/BlogHighlight";
 import BlogItem from "../components/BlogItem";
-import ComingSoon from "../components/ComingSoon";
-import Construction from "../components/Construction";
 import Head from "next/head";
-import BlogSingle from "../components/BlogSingle";
 
 function blog(props) {
+  const { postsData } = props;
+
+  const postItem = postsData.map((post, index) => {
+    if (index === 0) {
+      return;
+    }
+
+    return (
+      <BlogItem
+        path={`/blog/${post.path}`}
+        imgUrl={post.imgUrl}
+        category={post.category}
+        title={post.title}
+        publishTime={post.publishTime}
+        excerpt={post.excerpt}
+        key={index}
+      />
+    );
+  });
   return (
     <div className="">
       <Head>
@@ -40,21 +56,55 @@ function blog(props) {
         </h2>
       </div>
 
-      <div className="px-6 pt-8 md:container md:mx-auto">
-        <BlogSingle />
-      </div>
-      {/* <BlogHighlight />
+      <div className="px-6 pt-5 md:container md:mx-auto">
+        <p className="mx-6 font-bold mb-6 text-xl serif-heading">Terbaru</p>
+        <BlogHighlight
+          path={`/blog/${postsData[0].path}`}
+          imgUrl={postsData[0].imgUrl}
+          category={postsData[0].category}
+          title={postsData[0].title}
+          publishTime={postsData[0].publishTime}
+          excerpt={postsData[0].excerpt}
+        />
 
-      <div className="md:grid md:grid-cols-2 md:gap-8">
-        <BlogItem />
-        <BlogItem />
-        <BlogItem />
-      </div> */}
-      {/* <Construction /> */}
+        <p className="mx-6 mt-10 font-bold mb-6 text-xl serif-heading text-center">
+          Lebih banyak
+        </p>
+        <div className="grid md:grid-cols-3 gap-8 mx-6 mb-8 mt-4 mb-16">
+          {postItem}
+        </div>
+      </div>
     </div>
   );
 }
 
-blog.propTypes = {};
+export async function getServerSideProps(context) {
+  const FIREBASE_CONFIG = {
+    apiKey: "AIzaSyBRXpXtZxo5VnogmuJ-uJANAwYQ6E1E9Y8",
+    authDomain: "generasi-ilmiah-web.firebaseapp.com",
+    databaseURL: "https://generasi-ilmiah-web-default-rtdb.firebaseio.com/",
+    projectId: "generasi-ilmiah-web",
+    storageBucket: "generasi-ilmiah-web.appspot.com",
+    messagingSenderId: "233255754923",
+    appId: "1:233255754923:web:56ff5020c3baae27f4abee",
+    measurementId: "G-SWSCZYPDR2",
+  };
+
+  if (!firebase.apps.length) {
+    firebase.initializeApp(FIREBASE_CONFIG);
+  }
+  const db = firebase.firestore();
+
+  const fetch = await db
+    .collection("blog")
+    .where("isPublished", "==", true)
+    .orderBy("publishTime", "desc")
+    .get();
+  const postsData = fetch.docs.map((doc) => doc.data());
+
+  return {
+    props: { postsData },
+  };
+}
 
 export default blog;
