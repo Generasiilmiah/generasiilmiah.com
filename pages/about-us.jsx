@@ -26,8 +26,8 @@ function AboutPage(props) {
 
       {/* <SubpageHeader bgImg="/img.jpg" /> */}
       <div
-        className="cover-img cover-img-overlay-square rounded-none h-56 md:h-72 text-white md:mb-8 flex items-center justify-center"
-        style={{ backgroundImage: `url('/assets/img/team.webp')` }}
+        className="cover-img bg-top cover-img-overlay-square rounded-none h-56 md:h-72 2xl:h-96 text-white md:mb-8 flex items-center justify-center"
+        style={{ backgroundImage: `url('/assets/img/tentang-kami.webp')` }}
       >
         <h2 className="serif-heading text-xl text-3xl md:text-4xl text-center my-8 relative z-10">
           Tentang Kami
