@@ -1,6 +1,6 @@
 ## Generasi Ilmiah
 
-Ini adalah repository dari website utama Generasi Ilmiah. Versi deployed bisa diakses di ()[]. Dibuat menggunakan Next.js. Deployment menggunakan Vercel.
+Ini adalah repository dari website utama Generasi Ilmiah. Versi deployed bisa diakses di [generasiilmiah.com](https://generasiilmiah.com). Dibuat menggunakan Next.js. Deployment menggunakan Vercel.
 
 ## v1.0
 
