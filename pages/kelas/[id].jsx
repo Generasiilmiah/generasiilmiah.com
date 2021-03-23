@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Link from "next/link";
 import classIndex from "../../kelas.json";
 import { useRouter } from "next/router";
@@ -6,9 +6,14 @@ import Collapsible from "react-collapsible";
 import AccordionTitle from "../../components/AccordionTitle";
 import AccordionContent from "../../components/AccordionContent";
 import NotFound from "../404";
+
+import { CartContext } from "../../CartContext";
 import Head from "next/head";
 
 function ClassDetail(props) {
+  const cart = useContext(CartContext);
+  console.log(cart);
+
   function generateMsg(kelas, paket) {
     const targetPhone = `6281370369566`;
     const whatsappMsg = `Halo kak! Aku mau pesan Kelas ${kelas} paket ${paket} nih!`;
@@ -22,6 +27,22 @@ function ClassDetail(props) {
 
   const router = useRouter();
   const classId = router.query.id;
+
+  function handleOrder(id, pkg) {
+    const currentCart = cart;
+
+    if (currentCart.items.filter((item) => item.id === classId).length !== 0) {
+      console.log("Item already in cart");
+      return;
+    }
+
+    currentCart.items.unshift({
+      id,
+      pkg,
+    });
+
+    props.setCart(currentCart);
+  }
 
   return (
     <div className="">
@@ -82,39 +103,31 @@ function ClassDetail(props) {
                     Pesan kelas
                   </h3>
                   <div className="flex justify-around items-center">
-                    <Link
-                      href={generateMsg(props.classes[classId].name, "Basic")}
+                    <div
+                      className="w-2/5 border-2 border-gray-500 text-center rounded-lg shadow-lg py-3 transition duration-150 ease-in-out class-selection hover:shadow-xl cursor-pointer"
+                      onClick={() => handleOrder(classId, 0)}
                     >
-                      <a target="_blank" className="block w-2/5 ">
-                        <div className="border-2 border-gray-500 text-center rounded-lg shadow-lg py-3 transition duration-150 ease-in-out class-selection hover:shadow-xl cursor-pointer">
-                          <h2>BASIC</h2>
-                          <small className="line-through">
-                            Rp {props.classes[classId].priceBasicBefore}
-                          </small>
-                          <h3 className="font-bold text-lg -mt-1">
-                            Rp {props.classes[classId].priceBasic}
-                          </h3>
-                        </div>
-                      </a>
-                    </Link>
-                    <Link
-                      href={generateMsg(
-                        props.classes[classId].name,
-                        "Ultimate"
-                      )}
+                      <h2>BASIC</h2>
+                      <small className="line-through">
+                        Rp {props.classes[classId].priceBasicBefore}
+                      </small>
+                      <h3 className="font-bold text-lg -mt-1">
+                        Rp {props.classes[classId].priceBasic}
+                      </h3>
+                    </div>
+
+                    <div
+                      className="w-2/5 theme-bg text-white text-center rounded-lg shadow-lg py-3 transition duration-150 ease-in-out class-selection hover:shadow-xl cursor-pointer"
+                      onClick={() => handleOrder(classId, 1)}
                     >
-                      <a target="_blank" className="block w-2/5 ">
-                        <div className="theme-bg text-white text-center rounded-lg shadow-lg py-3 transition duration-150 ease-in-out class-selection hover:shadow-xl cursor-pointer">
-                          <h2>ULTIMATE</h2>
-                          <small className="line-through">
-                            Rp {props.classes[classId].priceUltBefore}
-                          </small>
-                          <h3 className="font-bold text-lg -mt-1">
-                            Rp {props.classes[classId].priceUlt}
-                          </h3>
-                        </div>
-                      </a>
-                    </Link>
+                      <h2>ULTIMATE</h2>
+                      <small className="line-through">
+                        Rp {props.classes[classId].priceUltBefore}
+                      </small>
+                      <h3 className="font-bold text-lg -mt-1">
+                        Rp {props.classes[classId].priceUlt}
+                      </h3>
+                    </div>
                   </div>
                 </div>
               </div>
