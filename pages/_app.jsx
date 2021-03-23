@@ -10,6 +10,9 @@ import "aos/dist/aos.css";
 import Aos from "aos";
 
 import { AuthProvider } from "../auth";
+import { CartProvider } from "../CartContext";
+import useLocalStorage from "../useLocalStorage";
+
 import * as gtag from "../lib/gtag";
 
 function MyApp({ Component, pageProps }) {
@@ -29,64 +32,70 @@ function MyApp({ Component, pageProps }) {
     };
   }, [router.events]);
 
+  const [cart, setCart] = useLocalStorage("cart", {
+    items: [],
+  });
+
   return (
     <AuthProvider>
-      <Head>
-        <meta name="robots" content="index, follow" />
-        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta property="og:locale" content="id_ID" />
-        <link
-          rel="apple-touch-icon"
-          sizes="57x57"
-          href="/logo/apple-icon-57x57.png"
-        />
-        <link
-          rel="apple-touch-icon"
-          sizes="76x76"
-          href="/logo/apple-icon-76x76.png"
-        />
-        <link
-          rel="apple-touch-icon"
-          sizes="144x144"
-          href="/logo/apple-icon-144x144.png"
-        />
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/logo/apple-icon-180x180.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="512x512"
-          href="/logo/icon512.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="192x192"
-          href="/logo/android-icon-192x192.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="/logo/favicon-32x32.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="96x96"
-          href="/logo/favicon-96x96.png"
-        />
-        <meta name="msapplication-TileColor" content="#ff7272" />
-        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
-        <meta name="theme-color" content="#ff7272" />
-      </Head>
+      <CartProvider value={cart}>
+        <Head>
+          <meta name="robots" content="index, follow" />
+          <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+          <meta property="og:locale" content="id_ID" />
+          <link
+            rel="apple-touch-icon"
+            sizes="57x57"
+            href="/logo/apple-icon-57x57.png"
+          />
+          <link
+            rel="apple-touch-icon"
+            sizes="76x76"
+            href="/logo/apple-icon-76x76.png"
+          />
+          <link
+            rel="apple-touch-icon"
+            sizes="144x144"
+            href="/logo/apple-icon-144x144.png"
+          />
+          <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/logo/apple-icon-180x180.png"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="512x512"
+            href="/logo/icon512.png"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="192x192"
+            href="/logo/android-icon-192x192.png"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/logo/favicon-32x32.png"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="96x96"
+            href="/logo/favicon-96x96.png"
+          />
+          <meta name="msapplication-TileColor" content="#ff7272" />
+          <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+          <meta name="theme-color" content="#ff7272" />
+        </Head>
 
-      <Nav />
-      <Component {...pageProps} />
-      <Footer />
+        <Nav />
+        <Component {...pageProps} setCart={setCart} />
+        <Footer />
+      </CartProvider>
     </AuthProvider>
   );
 }
