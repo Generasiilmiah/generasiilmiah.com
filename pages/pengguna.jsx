@@ -6,7 +6,8 @@ import firebaseClient from "../firebaseClient";
 import firebase from "firebase/app";
 
 function pengguna({ session }) {
-  firebaseClient();
+  // firebaseClient();
+  console.log(session);
 
   if (session) {
     return (
