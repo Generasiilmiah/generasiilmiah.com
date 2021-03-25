@@ -8,7 +8,12 @@ import HomeClass from "../components/HomeClass";
 import classIndex from "../kelas.json";
 import Head from "next/head";
 
-function index(props) {
+import nookies from "nookies";
+import { verifyIdToken } from "../firebaseAdmin";
+
+export default function index(props) {
+  console.log(props);
+
   return (
     <div>
       <Head>
@@ -107,9 +112,15 @@ function index(props) {
 }
 
 export async function getServerSideProps(context) {
-  return {
-    props: { ...classIndex },
-  };
-}
+  try {
+    const cookies = nookies.get(context);
+    const token = await verifyIdToken(cookies.token);
+    const { uid, email } = token;
 
-export default index;
+    return {
+      props: { ...classIndex, session: { uid, email } },
+    };
+  } catch (err) {
+    return { props: { ...classIndex, session: {} } };
+  }
+}
