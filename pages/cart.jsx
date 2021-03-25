@@ -23,61 +23,51 @@ function cart(props) {
   const cart = useContext(CartContext);
   console.log(cart);
 
-  const tempCartItem = [101];
-
-  const tempCartObj = tempCartItem.map((item) => kelas.classes[item]);
-
   function handleOrder() {
     const now = String(new Date().valueOf());
 
-    const cartItems = cart.items.map((item) => {
+    const cartPush = {
+      timePurchased: now,
+      user: props.session?.uid,
+      userEmail: props.session?.email,
+    };
+
+    cartPush.items = cart.items.map((item) => {
       const itemContent = {
         thumbnail: kelas.classes[item.id].thumbnail,
         name: kelas.classes[item.id].name,
         category: kelas.classes[item.id].category,
-        timePurchased: now,
-        user: props.session?.uid,
-        userEmail: props.session?.email,
       };
+
+      console.log(itemContent);
 
       if (item.pkg === 0) itemContent.price = kelas.classes[item.id].priceBasic;
       if (item.pkg === 1) itemContent.price = kelas.classes[item.id].priceUlt;
+
+      return itemContent;
     });
+
     // TODO: Add additional info(timestamp, userInfo)
+    console.log(cartPush);
+    console.log(props.session.uid);
 
     db.collection("orders")
       .doc(now)
-      .set({ items: cartItems })
+      .set({ ...cartPush })
       .then(() => {
         db.collection("users")
-          .doc(user.uid)
-          .collection("history")
-          .doc("purchaseHistory")
-          .get()
-          .then((data) => {
-            const userData = data.data();
-            console.log(userData);
-
-            cartItems.forEach((el) => {
-              userData.data.unshift(el);
+          .doc(props.session.uid)
+          .collection("purchaseHistory")
+          .doc(now)
+          .set({ ...cartPush })
+          .then(() => {
+            toast("Yeay");
+          })
+          .catch((err) => {
+            console.log(err.message);
+            toast.error(err.message, {
+              position: "bottom-center",
             });
-
-            console.log(userData);
-
-            db.collection("users")
-              .doc(user.uid)
-              .collection("history")
-              .doc("orderHistory")
-              .update({ data: userData.data })
-              .then(() => {
-                toast("Yeay");
-              })
-              .catch((err) => {
-                console.log(err.message);
-                toast.error(err.message, {
-                  position: "bottom-center",
-                });
-              });
           });
       })
       .catch((err) => {
@@ -86,6 +76,23 @@ function cart(props) {
           position: "bottom-center",
         });
       });
+  }
+
+  function handlePkgChange(pkg, idx) {
+    if (pkg === "basic") {
+      const currentCart = cart;
+      currentCart.items[idx].pkg = 0;
+      props.setCart(currentCart);
+      console.log(currentCart);
+      return;
+    }
+    if (pkg === "ultimate") {
+      const currentCart = cart;
+      currentCart.items[idx].pkg = 1;
+      props.setCart(currentCart);
+      console.log(currentCart);
+      return;
+    }
   }
 
   return (
@@ -108,6 +115,7 @@ function cart(props) {
                           : classData.priceUlt
                       }
                       pkg={item.pkg === 0 ? "basic" : "ultimate"}
+                      handlePkgChange={handlePkgChange}
                     />
                   );
                 })
@@ -172,7 +180,7 @@ export async function getServerSideProps(context) {
       },
     };
   } catch (err) {
-    return { props: {} };
+    return { props: { session: {} } };
   }
 }
 
