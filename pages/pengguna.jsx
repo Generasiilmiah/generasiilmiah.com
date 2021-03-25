@@ -4,6 +4,7 @@ import nookies from "nookies";
 import { verifyIdToken } from "../firebaseAdmin";
 import firebaseClient from "../firebaseClient";
 import firebase from "firebase/app";
+import Link from "next/link";
 
 function pengguna({ session }) {
   // firebaseClient();
@@ -22,6 +23,11 @@ function pengguna({ session }) {
         >
           Log out
         </button>
+        <Link href="/cart">
+          <a className="w-28 mx-auto flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
+            Cart
+          </a>
+        </Link>
       </div>
     );
   } else {

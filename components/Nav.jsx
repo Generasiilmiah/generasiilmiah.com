@@ -1,17 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Link from "../NavLink";
-// import { useAuth } from "../auth";
-// import firebase from "firebase/app";
-// import "firebase/firestore";
+import { useAuth } from "../auth";
 import * as gtag from "../lib/gtag";
 
-function Nav(props) {
-  // const db = firebase.firestore();
-  // const { user } = useAuth();
-  const user = "";
+export default function Nav(props) {
+  const { user } = useAuth();
 
   const [isOpen, setOpen] = useState(false);
-  // const [userInfo, setUserInfo] = useState({});
 
   function toggleNav() {
     setOpen(!isOpen);
@@ -23,26 +18,6 @@ function Nav(props) {
     //   category: "Auth",
     // });
   }
-
-  // async function getUserInfo(uid) {
-  //   if (user) {
-  //     await db
-  //       .collection("users")
-  //       .doc(uid)
-  //       .get()
-  //       .then((userData) => {
-  //         if (userData.data()) {
-  //           const fetch = userData.data();
-  //           setUserInfo(fetch);
-  //           console.log(userInfo);
-  //         }
-  //       });
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   getUserInfo(user.uid);
-  // }, []);
 
   return (
     <nav className="">
@@ -106,7 +81,7 @@ function Nav(props) {
                 className="rounded-xl px-6 py-1.5 h-full mr-4 theme-bg text-white font-bold flex justify-center items-center"
                 style={{ boxSizing: "border-box" }}
               >
-                <p>{user.uid}</p>
+                <p>Menu</p>
               </div>
             </a>
           </Link>
@@ -139,6 +114,8 @@ function Nav(props) {
   );
 }
 
-Nav.propTypes = {};
-
-export default Nav;
+export async function getServerSideProps(context) {
+  return {
+    props: { hi: "hello" },
+  };
+}
