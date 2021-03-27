@@ -17,6 +17,7 @@ import "firebase/firestore";
 import { CartContext } from "../CartContext";
 
 function cart(props) {
+  const randomstring = require("randomstring");
   const db = firebase.firestore();
   // const { user } = useAuth();
   const user = true;
@@ -24,12 +25,17 @@ function cart(props) {
   console.log(cart);
 
   function handleOrder() {
+    let random = Math.floor(Math.random() * 600);
+
+    console.log(random);
     const now = String(new Date().valueOf());
 
     const cartPush = {
       timePurchased: now,
       user: props.session?.uid,
       userEmail: props.session?.email,
+      paymentStatus: 1,
+      transactionId: `GI-${randomstring.generate(6)}`.toUpperCase(),
     };
 
     cartPush.items = cart.items.map((item) => {
@@ -41,8 +47,10 @@ function cart(props) {
 
       console.log(itemContent);
 
-      if (item.pkg === 0) itemContent.price = kelas.classes[item.id].priceBasic;
-      if (item.pkg === 1) itemContent.price = kelas.classes[item.id].priceUlt;
+      if (item.pkg === 0)
+        itemContent.price = kelas.classes[item.id].priceBasic + random;
+      if (item.pkg === 1)
+        itemContent.price = kelas.classes[item.id].priceUlt + random;
 
       return itemContent;
     });
@@ -62,6 +70,8 @@ function cart(props) {
           .set({ ...cartPush })
           .then(() => {
             toast("Yeay");
+            props.setCart({ items: [] });
+            Router.push(`/riwayat/${cartPush.transactionId}`);
           })
           .catch((err) => {
             console.log(err.message);
