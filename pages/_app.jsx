@@ -5,6 +5,7 @@ import Nav from "../components/Nav";
 import "../styles/globals.scss";
 import "../styles/tailwind.css";
 import Head from "next/head";
+import firebaseClient from "../firebaseClient";
 
 import "aos/dist/aos.css";
 import Aos from "aos";
@@ -16,6 +17,7 @@ import useLocalStorage from "../useLocalStorage";
 import * as gtag from "../lib/gtag";
 
 function MyApp({ Component, pageProps }) {
+  firebaseClient();
   const router = useRouter();
 
   useEffect(() => {
