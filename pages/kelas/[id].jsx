@@ -156,6 +156,7 @@ function ClassDetail(props) {
                         triggerStyle={{ cursor: "pointer" }}
                         transitionTime={200}
                         easing="ease-in-out"
+                        key={index}
                       >
                         <AccordionContent items={curriculumItem.subItem} />
                       </Collapsible>
