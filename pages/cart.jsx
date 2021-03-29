@@ -36,6 +36,7 @@ function cart(props) {
       userEmail: props.session?.email,
       paymentStatus: 1,
       transactionId: `GI-${randomstring.generate(6)}`.toUpperCase(),
+      total: 0,
     };
 
     cartPush.items = cart.items.map((item) => {
@@ -47,10 +48,13 @@ function cart(props) {
 
       console.log(itemContent);
 
-      if (item.pkg === 0)
+      if (item.pkg === 0) {
         itemContent.price = kelas.classes[item.id].priceBasic + random;
-      if (item.pkg === 1)
+        cartPush.total += kelas.classes[item.id].priceBasic;
+      } else if (item.pkg === 1) {
         itemContent.price = kelas.classes[item.id].priceUlt + random;
+        cartPush.total += kelas.classes[item.id].priceUlt;
+      }
 
       return itemContent;
     });
@@ -71,7 +75,13 @@ function cart(props) {
           .then(() => {
             toast("Yeay");
             props.setCart({ items: [] });
-            Router.push(`/riwayat/${cartPush.transactionId}`);
+            Router.push({
+              pathname: `/pembayaran/${cartPush.transactionId}`,
+              query: {
+                total: cartPush.total,
+                transactionId: cartPush.transactionId,
+              },
+            });
           })
           .catch((err) => {
             console.log(err.message);
