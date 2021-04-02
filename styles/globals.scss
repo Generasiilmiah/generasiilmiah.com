@@ -240,6 +240,28 @@ header {
   }
 }
 
+.user-hover-menu {
+  color: $TEXT;
+  display: none;
+}
+
+// USER HOVER MENU
+.user-hover-trigger {
+  cursor: pointer;
+
+  &:hover {
+    .user-hover-menu {
+      display: block;
+    }
+  }
+}
+
+.user-hover-menu {
+  &:hover {
+    display: block;
+  }
+}
+
 @media (min-width: 768px) {
   .subpage-img {
     height: 300px;
