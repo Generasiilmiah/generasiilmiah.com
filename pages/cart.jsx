@@ -37,6 +37,7 @@ function cart(props) {
       paymentStatus: 1,
       transactionId: `GI-${randomstring.generate(6)}`.toUpperCase(),
       total: 0,
+      priceId: random,
     };
 
     cartPush.items = cart.items.map((item) => {
@@ -49,17 +50,18 @@ function cart(props) {
       console.log(itemContent);
 
       if (item.pkg === 0) {
-        itemContent.price = kelas.classes[item.id].priceBasic + random;
+        itemContent.price = kelas.classes[item.id].priceBasic;
         cartPush.total += kelas.classes[item.id].priceBasic;
       } else if (item.pkg === 1) {
-        itemContent.price = kelas.classes[item.id].priceUlt + random;
+        itemContent.price = kelas.classes[item.id].priceUlt;
         cartPush.total += kelas.classes[item.id].priceUlt;
       }
 
       return itemContent;
     });
 
-    // TODO: Add additional info(timestamp, userInfo)
+    cartPush.total += random;
+
     console.log(cartPush);
     console.log(props.session.uid);
 
