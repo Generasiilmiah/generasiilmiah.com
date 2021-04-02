@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Link from "../NavLink";
 import { useAuth } from "../auth";
 import * as gtag from "../lib/gtag";
+import UserHoverMenu from "./UserHoverMenu";
 
 export default function Nav(props) {
   const { user } = useAuth();
@@ -21,7 +22,7 @@ export default function Nav(props) {
 
   return (
     <nav className="">
-      <div className="px-6 h-20 flex justify-between items-center md:container md:mx-auto z relative-20">
+      <div className="px-6 h-20 flex justify-between items-center md:container md:mx-auto relative z-20">
         <Link href="/">
           <a>
             <img
@@ -75,21 +76,20 @@ export default function Nav(props) {
         </ul>
 
         {user ? (
-          <Link href="/pengguna">
-            <a className="hidden md:block">
-              <div
-                className="rounded-xl px-6 py-1.5 h-full mr-4 theme-bg text-white font-bold flex justify-center items-center"
-                style={{ boxSizing: "border-box" }}
-              >
-                <p>Menu</p>
-              </div>
-            </a>
-          </Link>
+          <div className="user-hover-trigger h-full flex items-center justify-center">
+            <div
+              className="rounded-xl px-6 py-1.5 theme-bg text-white font-bold flex justify-center items-center"
+              style={{ boxSizing: "border-box" }}
+            >
+              <p>Menu</p>
+              <UserHoverMenu />
+            </div>
+          </div>
         ) : (
           <Link href="/login">
             <a className="hidden md:block">
               <div
-                className="rounded-xl px-6 py-1.5 h-full mr-4 theme-bg text-white font-bold flex justify-center items-center hover:bg-red-200 hover:text-red-500 transition duration-150 ease-in-out"
+                className="rounded-xl px-6 py-1.5 h-full theme-bg text-white font-bold flex justify-center items-center hover:bg-red-200 hover:text-red-500 transition duration-150 ease-in-out"
                 style={{ boxSizing: "border-box" }}
                 onClick={registerEvent()}
               >
