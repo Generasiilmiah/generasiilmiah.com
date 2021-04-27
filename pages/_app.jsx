@@ -9,6 +9,10 @@ import Head from "next/head";
 import "aos/dist/aos.css";
 import Aos from "aos";
 
+import "swiper/swiper.scss";
+import "swiper/components/navigation/navigation.scss";
+import "swiper/components/pagination/pagination.scss";
+
 import { AuthProvider } from "../auth";
 import * as gtag from "../lib/gtag";
 

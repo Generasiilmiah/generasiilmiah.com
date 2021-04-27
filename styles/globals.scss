@@ -320,4 +320,13 @@ header {
   .home-heading-hybrid {
     text-align: center;
   }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none !important;
+  }
+}
+
+:root {
+  --swiper-theme-color: #8f0606 !important;
 }
